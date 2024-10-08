@@ -2,9 +2,9 @@
 
 {%block content%}
 <h1 class="car_header">{%if form.instance.pk%} Edit a{%else%} New {%endif%} Car</h1>
-<form method="POST" class="edit-form">
+<form method="POST" enctype="multipart/form-data" class="edit-form">
     {%csrf_token%}
     {{form.as_p}}
-    <button type="submit" class="btn btn-save">Save</button>
+    <button type="submit" class="btn-save">Save</button>
 </form>
 {%endblock%}

@@ -28,6 +28,10 @@ class CarCreateView(CreateView):
     template_name = 'car/car_edit.html'
     success_url = reverse_lazy('car_list')
 
+    def form_valid(self, form):
+        # You can perform additional operations here before saving
+        return super().form_valid(form)
+
 class CarUpdateView(UpdateView):
     model = Car
     form_class = CarForm
@@ -45,7 +49,7 @@ class CarSearchView(ListView):
     template_name = 'car/car_search.html'
     context_object_name = 'cars'
 
-    def get_queryset(self):
+    def get_query(self):
         query = self.request.GET.get('query', '')
         if query:
             return Car.objects.filter(producer__icontains=query)
