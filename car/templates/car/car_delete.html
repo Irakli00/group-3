@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<h1 class="text-center">Delete a Car</h1>
+<div>
+    Are you sure you want to delete<b> {{car.producer}} {{car.series}} ({{car.production_date}})</b>
+</div>
+
+<form method="POST">
+    {%csrf_token%}
+    <button type="submit" class="delete-btn">Delete</button>
+</form>
+
+<a href="{% url 'car_detail' car.pk%}" class="dont-delete">Take me back</a>
+{% endblock%}

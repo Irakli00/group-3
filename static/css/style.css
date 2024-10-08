@@ -1,0 +1,72 @@
+*{
+padding:0;
+margin:0;
+box-sizing:border-box;
+}
+
+.container{
+    display:grid;
+    justify-content:center;
+    align-items:center;
+    margin:20px auto;
+    max-width:50%;
+    padding:1rem 5rem;
+    background-color:#333;
+    color:#fefefe;
+}
+
+.edit-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+a{
+    color:red;
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+h5{
+    font-size:1.5rem;
+}
+
+.car_header{
+    font-size:2.5rem;
+}
+
+form label{
+    display:block;
+}
+
+.btn-save{
+    background:limegreen;
+    width:100%;
+    border:none;
+    cursor:pointer;
+    color:inherit;
+    font-size:1rem;
+    font-weight:700;
+    padding:20px 0 20px 0;
+}
+
+.card{
+    border:1px solid #fefefe;
+    padding:10px 40px;
+    margin:10px 0;
+}
+
+.delete-btn{
+    margin-top:20px;
+    background-color:red;
+    border:none;
+    padding:10px;
+    font-weight:700;
+}
+
+.dont-delete{
+    margin:10px 0;
+    color:cyan;
+}

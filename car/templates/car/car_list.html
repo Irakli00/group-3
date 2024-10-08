@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Cars:</h1>
+    {% for car in cars %}
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <a href="{% url 'car_detail' car.pk %}">{{ car.producer }}: {{ car.series }}</a>
+                </h2>
+            </div>
+        </div>
+    {% empty %}
+        <p>No cars available</p>
+    {% endfor %}
+{% endblock %}
