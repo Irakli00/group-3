@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h1 class="car_header">Find a Car</h1>
+<form method="GET">
+    <input type="text" name="query" placeholder="Search for books..." required>
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    {%if cars%}
+    {% for car in cars %}
+        <li>{{ car.series }} by {{ car.producer }}</li>
+    {% endfor %}
+    {%else%}
+        <li>Not found</li>
+    {%endif%}
+</ul>
+{%endblock%}
+
+<!--    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-save">Search</button>-->

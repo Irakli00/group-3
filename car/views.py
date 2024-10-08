@@ -8,6 +8,11 @@ from .forms import CarForm
 def car_landing_page(request):
     return render(request,'car/car_landing.html')
 
+# class CarLandingPage(CreateView):
+#     model = Car
+#     template_name = 'car/car_landing.html'
+#     # form_class = CarForm
+
 class CarListView(ListView):
     model = Car
     template_name = 'car/car_list.html'
@@ -33,3 +38,15 @@ class CarDeleteView(DeleteView):
     model = Car
     template_name = 'car/car_delete.html'
     success_url = reverse_lazy('car_list')
+
+
+class CarSearchView(ListView):
+    model = Car
+    template_name = 'car/car_search.html'
+    context_object_name = 'cars'
+
+    def get_queryset(self):
+        query = self.request.GET.get('query', '')
+        if query:
+            return Car.objects.filter(producer__icontains=query)
+        return Car.objects.all()
